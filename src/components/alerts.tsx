@@ -15,12 +15,17 @@ const Message=styled.div`
     color:#01356B; 
 `
 const MoneyAlert=styled(Message)`
-        top:540px;
+        
+        @media screen and (min-width: 980px){
+            top:490px;
+        }
+        @media screen and (max-width: 979px){
+            top:540px;
+        }
 `
-const NumberAlert=styled(Message)`   
-    
+const NumberAlert=styled(Message)`      
     @media screen and (min-width: 980px){
-        top:375px;
+        top:370px;
     }
     @media screen and (max-width: 979px){
         top:405px;
