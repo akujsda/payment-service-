@@ -42,7 +42,7 @@ const ButtonInput:React.FC<Props>=({
     startLoading,
     
 })=> {
-    const isButtonActive=isCorrectBalance && isCorrectNumber && isLoadiengActive===false
+    const isButtonActive=isCorrectBalance && isCorrectNumber && isLoadiengActive===false 
   if (isButtonActive){          
         return <Router history={history}>
                     <Route> <ButtonStyled id="button" name="button" onClick={startLoading}>Payment</ButtonStyled> </Route>
