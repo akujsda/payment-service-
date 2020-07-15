@@ -15,11 +15,17 @@ const Message=styled.div`
     color:#01356B; 
 `
 const MoneyAlert=styled(Message)`
-    top:550px;
-}
+        top:540px;
 `
 const NumberAlert=styled(Message)`   
-    top:410px;
+    
+    @media screen and (min-width: 980px){
+        top:375px;
+    }
+    @media screen and (max-width: 979px){
+        top:405px;
+    }
+}
 }    
 `
 const ReplanishmentSuccessAlert=styled(Message)`
