@@ -3,16 +3,66 @@ body{
   padding:0;
   min-height:100vh;
   background:#E3E3E3;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size:28px;
+  display: flex;
  }
 
 input:focus{
   outline: none;
   }
+.numberInput{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    width:100vw;
+  }
+  
+  label{
+    position: absolute;
+  }
+  #phoneError{
+    position: absolute;
+      top: 220px;
+      width:100%;
+      display: flex;
+      justify-content: center;
+      width:100vw;
+  }
+  
+  #sumError{
+    position: absolute;
+    top: 340px;
+    width:100%;
+    display: flex;
+      justify-content: center;
+      width:100vw;
+  }
+  
+  button{
+    position: absolute;
+    font-size: 18px;
+    top:380px;
+    color:black;
+    background:transparent;
+    border-radius:30px;
+    outline: none;
+    box-shadow: 0px 4px 10px 5px grey;
+    width: 170px;
+    font-family: 'Rubik Mono One', sans-serif;
+  }
+  button:hover{
+              background: rgb(245,252,11);
+              background: linear-gradient(180deg, rgba(245,252,11,1) 0%, rgba(165,252,21,1) 100%);
+  }
 
 ::placeholder {
     color: #020202;
     text-align: center;
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 20px;
   }
 .correctInput{
   border:1px solid #11c511;
@@ -32,7 +82,8 @@ input:focus{
 
 input{
   height:50px;
-  font-size:28px ;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size:18px ;
   border:none; 
   color:#020202;
   text-align:center;
@@ -41,7 +92,7 @@ input{
   background: transparent;
   box-shadow: 0px 4px 10px 5px gray; 
   border-radius: 30px;
-  font-family: 'Do Hyeon', sans-serif;
+  justify-content: center;
 }
 input:focus{
   border:none;
@@ -60,12 +111,15 @@ input:focus{
 
   #my-input-number-id{
    width:350px;
-   top:300px;
+   top:150px;
   }
 
   #my-input-balance-id{
    width:250px;
-   top:420px;
+   top:270px;
+  }
+  .header{
+    font-size: 25px;
   }
 }
 
@@ -77,16 +131,35 @@ input:focus{
     justify-content: center; 
   }
   ::placeholder{
-    font-size:24px ;
+    font-size:15px ;
 }
   #my-input-balance-id{
     width:200px;
-    top: 480px;
+    top: 270px;
   }
   #my-input-number-id{
     width:300px;
-    top:340px;
+    top:150px;
     }
+  #phoneError{
+    position: absolute;
+    top:220px;
+    display: flex;
+      justify-content: center;
+      width:100vw;
+  }
+  #sumError{
+    top:350px;
+    display: flex;
+      justify-content: center;
+      width:100vw;
+  }
+  .header{
+    font-size:20px;
+  }
+  #successfullMessage, #replanishmentError{
+    top:420px;
+  }
 }
 
 @keyframes swipeUP{
@@ -98,4 +171,80 @@ input:focus{
   }
 }
 
+.errorMessage,#successfullMessage{
+  text-align: center;
+  width:300px;
+  font-size:20px;
+  position: absolute;   
+  top:450px;
+}
 
+.errorMessage{
+  color:red;
+
+}
+#successfullMessage{
+  color:green;
+}
+.flexWrapper{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.header{
+  width:100vw;
+  height:75px;
+  background: rgb(245,252,11);
+  background: linear-gradient(180deg, rgba(245,252,11,1) 0%, rgba(165,252,21,1) 100%);
+  position:absolute;
+  top:0px;
+  left:0px;
+  color:#020202;
+  text-align:center;
+  line-height: 75px;
+  box-shadow: 0px 10px 5px #FFFFC5; 
+}
+
+.allOperators{
+  width:75px;
+  height:75px;
+  margin:15px;
+  top:120px;
+}
+.chosenOperator{
+  width:150px;
+  height:150px;
+  top:100px;
+}
+.operatorImage{
+  position:relative;
+  margin-top:20px;
+  box-shadow: 0px 0px 5px 5px #FFFFC5; 
+  animation:swipeDown linear 0.6s;
+  border-radius:50%;
+  @keyframes swipeDown{
+     0%{
+       transform:translate(0px,-1000px)
+     }
+     100%{
+       transform:translate(0px,0px)
+     }
+   }
+}
+.loading{
+  transition: all 1s ease 0s;
+  position: absolute;
+  width:350px;
+  height:350px;
+  top: 100px;
+}
+#languageSwitcher{
+  width:75px;
+  height:25px;
+  z-index: 10;
+  position: fixed;
+  top:calc(100vh - 25px);
+  left:calc(100vw - 75px);
+  background: transparent;
+  border-radius: 25px;
+}

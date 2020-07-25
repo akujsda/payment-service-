@@ -1,0 +1,26 @@
+{
+    "EnterPhoneNumber":{
+        "1": "Введите номер телефона"
+    },
+    "PaymentAmount":{
+        "1": "Введите сумму"
+    },
+    "Required":{
+        "1": "Обязательное поле"
+    },
+    "IncorrectNumber":{
+        "1": "Номер введен неверно"
+    },
+    "AllowableAmount":{
+        "1": "Допустима сумма от 1 до 1000"
+    },
+    "ReplanishmentError":{
+        "1": "Ошибка при оплате"
+    },
+    "ReplanishmentSuccess":{
+        "1": "Пополнение прошло успешно"
+    },
+    "Replenishment":{
+        "1": "Пополнить"
+    }
+}

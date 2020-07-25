@@ -1,0 +1,26 @@
+{
+    "EnterPhoneNumber":{
+       "1": "Enter phone number"
+    },
+    "PaymentAmount":{
+        "1": "Payment amount"
+    },
+    "Required":{
+        "1": "Required"
+    },
+    "IncorrectNumber":{
+        "1": "Incorrect number"
+    },
+    "AllowableAmount":{
+        "1": "Allowable amount from 1 to 1000"
+    },
+    "ReplanishmentError":{
+        "1": "An error has occurred"
+    },
+    "ReplanishmentSuccess":{
+        "1": "Successfull replenishment"
+    },
+    "Replenishment":{
+        "1": "Replenish"
+    }
+} 
