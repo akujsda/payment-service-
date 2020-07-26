@@ -19,10 +19,6 @@ input:focus{
     justify-content: center;
     width:100vw;
   }
-  
-  label{
-    position: absolute;
-  }
   #phoneError{
     position: absolute;
       top: 220px;
@@ -100,6 +96,9 @@ input:focus{
   background: radial-gradient(circle, rgba(245,252,11,1) 0%, rgba(165,252,21,0.22452731092436973) 100%);
   box-shadow: 0px 0px 10px 2px #FFFFC5; 
 }
+::placeholder{
+  font-size:15px ;
+}
  @media screen and (min-width: 980px){
   #root{
    width:100vw;
@@ -131,8 +130,9 @@ input:focus{
     justify-content: center; 
   }
   ::placeholder{
-    font-size:15px ;
-}
+    font-size:14px ;
+  }
+
   #my-input-balance-id{
     width:200px;
     top: 270px;

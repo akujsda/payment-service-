@@ -106,7 +106,7 @@ const FormField:React.FC<MyForm>=({
 
           <MaskedInput
             placeholder={`${intl.messages.paymentAmount}`}
-            mask={[/[1-9]/, /\d/, /\d/]}
+            mask={[/[1-9]/, /\d/, /\d/, /\d/]}
             id="my-input-balance-id"
             placeholderChar=" "
             autoComplete="off"
