@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import {IntlProvider} from 'react-intl';
 import {LOCALES} from './locales';
 import messages from './messages';
-import PropTypes from 'prop-types'
 
 interface Props{
     children:React.ReactElement,
@@ -20,9 +19,5 @@ const Provider:React.FC<Props> =({children, locale=LOCALES.ENGLISH},
   </IntlProvider>;
 };
 
-Provider.propTypes={
-  children: PropTypes.any,
-  locale: PropTypes.any,
-}
 
 export default Provider;

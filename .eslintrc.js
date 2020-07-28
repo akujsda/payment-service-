@@ -4,8 +4,10 @@ module.exports = {
     'es2020': true,
   },
   'extends': [
-    "eslint:recommended",
     'plugin:react/recommended',
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
   ],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
@@ -21,6 +23,6 @@ module.exports = {
   ],
   'rules': {
     "linebreak-style": 0,
-    
+    "react/prop-types": 0,
   },
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import translate from '../i18n/messages/translate';
-import PropTypes from 'prop-types';
+
 
 interface Props{
-    isReplenishmentSuccessful:boolean | undefined;
+    isReplenishmentSuccessful?:boolean;
 }
 
 export const Alerts:React.FC<Props>=({
@@ -24,10 +24,4 @@ export const Alerts:React.FC<Props>=({
       </div>);
   }
   return null;
-};
-
-Alerts.propTypes={
-  isReplenishmentSuccessful: PropTypes.oneOfType([
-    PropTypes.bool,
-  ]),
 };

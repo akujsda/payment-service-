@@ -5,21 +5,22 @@ import {Alerts} from './alerts';
 import {Loading} from './loading';
 import translate from '../i18n/messages/translate';
 import {useIntl} from 'react-intl';
+import * as Yup from 'yup';
 
 interface MyForm{
     startLoading:()=>void,
     stateOperator:string,
     isLoadiengActive:boolean;
-    isReplenishmentSuccessful:boolean | undefined;
+    isReplenishmentSuccessful?:boolean;
 }
 
 interface InitValues{
-  phoneNumber: string | undefined;
-  sum: string | undefined;
+  phoneNumber: string;
+  sum: string;
 }
 const initialValues:InitValues={
-  phoneNumber: undefined,
-  sum: undefined,
+  phoneNumber: '',
+  sum: '',
 };
 
 const FormField:React.FC<MyForm>=({
@@ -28,35 +29,32 @@ const FormField:React.FC<MyForm>=({
   isLoadiengActive,
   isReplenishmentSuccessful,
 }):React.ReactElement | null=>{
+  const intl=useIntl();
+  const validationSchema=Yup.object({
+    phoneNumber:Yup.string()
+      .required(`${intl.messages.required}`)
+      .test('numberCheck', `${intl.messages.incorrectNumber}`, function():any{
+        if (formik.values.phoneNumber.includes('_', 0)===true || formik.values.phoneNumber[3] !=='9'){  
+          formik.errors.phoneNumber="incorrectNumber"     
+        return false
+        }else return true
+      }),
+    sum:Yup.string()
+      .required(`${intl.messages.required}`)
+      .test('sumCheck', `${intl.messages.allowableAmount}`, function(){
+        const correctAmount:boolean =+formik.values.sum>1000;
+        if (correctAmount===true){       
+          return false
+        }else
+        return true
+      }),
+
+  })
   const formik = useFormik({
-    validate,
     onSubmit,
     initialValues,
+    validationSchema
   });
-  const intl=useIntl();
-
-  function validate(values:any):object {
-    const errors={
-      phoneNumber: '',
-      sum: '',
-    };
-
-    const correctAmount:boolean = +values.sum<1 || +values.sum>1000;
-    if (!values.phoneNumber) {
-      errors.phoneNumber='required';
-    } else if (values.phoneNumber.includes('_', 0)===true ||
-     values.phoneNumber[3] !=='9') {
-      errors.phoneNumber='incorrectNumber';
-    } else errors.phoneNumber='';
-
-    if (!values.sum) {
-      errors.sum='required';
-    } else if (correctAmount===true) {
-      errors.sum='allowableAmount';
-    } else errors.sum='';
-
-    return errors;
-  }
 
 
  async function onSubmit() {
@@ -76,12 +74,14 @@ const FormField:React.FC<MyForm>=({
       formik.errors.phoneNumber===undefined ||
       formik.errors.sum===undefined ||
       isLoadiengActive===true) {
-    button=undefined;
+    button=null;
   } else {
     button=<button type="submit"
       onClick={onSubmit}
       id="button">{`${intl.messages.Replenishment}`}</button>;
   }
+
+  
   if (stateOperator !== 'All') {
     return (
       <>
@@ -103,6 +103,7 @@ const FormField:React.FC<MyForm>=({
           {formik.touched.phoneNumber && formik.errors.phoneNumber ?
         <div id="phoneError" className="errorMessage" >
           {translate(formik.errors.phoneNumber)}</div>: null }
+
 
           <MaskedInput
             placeholder={`${intl.messages.paymentAmount}`}
