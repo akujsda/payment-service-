@@ -33,7 +33,7 @@ const FormField:React.FC<MyForm>=({
   const validationSchema=Yup.object({
     phoneNumber:Yup.string()
       .required('required')
-      .test('numberCheck', 'incorrectNumber', function():any{
+      .test('numberCheck', 'incorrectNumber', function():boolean{
         if (formik.values.phoneNumber.includes('_', 0)===true || formik.values.phoneNumber[3] !=='9'){      
         return false
         }else {
@@ -60,12 +60,15 @@ const FormField:React.FC<MyForm>=({
 
  async function onSubmit() {
     startLoading();
-    formik.values.phoneNumber="";
-    formik.values.sum="";
-    formik.errors.phoneNumber=undefined;
-    formik.errors.sum=undefined;
-    formik.touched.phoneNumber=false;
-    formik.touched.sum=false;   
+    setTimeout(() => {
+      formik.values.phoneNumber="";
+      formik.values.sum="";
+      formik.errors.phoneNumber=undefined;
+      formik.errors.sum=undefined;
+      formik.touched.phoneNumber=false;
+      formik.touched.sum=false; 
+    }, 500);
+  
   }
 
   let button;

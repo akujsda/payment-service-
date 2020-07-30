@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface MyProps{
-    switchLanguage:(event:any)=>void;
+    switchLanguage:(event:React.ChangeEvent)=>void;
 }
 export const LanguageSwitch=({
   switchLanguage,

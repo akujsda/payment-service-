@@ -8,7 +8,7 @@ interface Props{
 export const Operators:React.FC<Props>=({
   stateOperator,
 
-}):React.ReactElement | null=> {
+}):React.ReactElement => {
 
   const image:object={
     'megafon':"https://i.ibb.co/M1SbVFr/megafon.png",
@@ -26,12 +26,10 @@ export const Operators:React.FC<Props>=({
     return <Link to="./numberinput">
       {operator}
     </Link>;
-  } else if (stateOperator !== "All") {
+  } else {
     return <img className="chosenOperator operatorImage"
       id={stateOperator}
       src={imageSrc[currentOperator]}
       alt="pic"/>;
-  } else {
-    return null;
   }
 }

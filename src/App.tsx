@@ -5,7 +5,7 @@ import AppRouter from './route/appRouter';
 import {I18nProvider, LOCALES} from './i18n';
 
 const App: React.FC=()=> {
-  const [locale, setLocale]=useState<any>(LOCALES.ENGLISH);
+  const [locale, setLocale]=useState<string>(LOCALES.ENGLISH);
 
   const switchLanguage=(event:any):void =>{
     switch (event.target.value) {
@@ -23,7 +23,7 @@ const App: React.FC=()=> {
       <div>
         <Header />
         <LanguageSwitch switchLanguage={switchLanguage} /> 
-             
+
         <AppRouter /> 
       </div>
     </I18nProvider>
