@@ -34,10 +34,11 @@ const FormField:React.FC<MyForm>=({
     phoneNumber:Yup.string()
       .required(`${intl.messages.required}`)
       .test('numberCheck', `${intl.messages.incorrectNumber}`, function():any{
-        if (formik.values.phoneNumber.includes('_', 0)===true || formik.values.phoneNumber[3] !=='9'){  
-          formik.errors.phoneNumber="incorrectNumber"     
+        if (formik.values.phoneNumber.includes('_', 0)===true || formik.values.phoneNumber[3] !=='9'){      
         return false
-        }else return true
+        }else {
+          return true
+        }
       }),
     sum:Yup.string()
       .required(`${intl.messages.required}`)
@@ -64,23 +65,17 @@ const FormField:React.FC<MyForm>=({
     formik.errors.phoneNumber=undefined;
     formik.errors.sum=undefined;
     formik.touched.phoneNumber=false;
-    formik.touched.sum=false;
-    
+    formik.touched.sum=false;   
   }
 
   let button;
-  if (formik.errors.phoneNumber ||
-      formik.errors.sum ||
-      formik.errors.phoneNumber===undefined ||
-      formik.errors.sum===undefined ||
-      isLoadiengActive===true) {
+  if (formik.errors.phoneNumber || formik.errors.sum || isLoadiengActive===true || formik.values.phoneNumber==="" || formik.values.sum==="" ) {
     button=null;
   } else {
     button=<button type="submit"
       onClick={onSubmit}
       id="button">{`${intl.messages.Replenishment}`}</button>;
   }
-
   
   if (stateOperator !== 'All') {
     return (

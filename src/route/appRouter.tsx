@@ -59,18 +59,17 @@ const AppRouter: React.FC=():React.ReactElement=> {
       returnToMainDisplay();
     }
   };
+
+ 
   return (
     <Router >
-      <Route path="/">
+      <Route path="/" component={Operators} >
         <div onClick={optionOperator} className="flexWrapper">
-          <Operators stateOperator={operator} id="megafon" picture="https://i.ibb.co/M1SbVFr/megafon.png" />
-          <Operators stateOperator={operator} id="beeline" picture="https://i.ibb.co/S3fyvFf/beeline.png" />
-          <Operators stateOperator={operator} id="MTC" picture="https://i.ibb.co/c2Vnhyk/mts.png" />
+          <Operators stateOperator={operator} />
         </div>
       </Route>
 
       <Route path="/numberinput" component={FormField}>
-
         <FormField
           startLoading={startLoading}
           stateOperator={operator}

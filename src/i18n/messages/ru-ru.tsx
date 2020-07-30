@@ -2,13 +2,13 @@ import {LOCALES} from '../locales';
 
 export default {
 [LOCALES.RUSSIAN]:{
-    "enterPhoneNumber":"Введите номер телефона",
-    "paymentAmount":"Введите сумму",
-    "required":"Обязательное поле",
-    "incorrectNumber":"Номер введен неверно",
-    "allowableAmount":"Допустима сумма от 1 до 1000",
-    "replanishmentError":"Ошибка при оплате",
-    "replanishmentSuccess":"Пополнение прошло успешно",
-    "Replenishment":"Пополнить"
+    "enterPhoneNumber":"введите номер телефона",
+    "paymentAmount":"введите сумму",
+    "required":"обязательное поле",
+    "incorrectNumber":"номер введен неверно",
+    "allowableAmount":"допустима сумма от 1 до 1000",
+    "replanishmentError":"ошибка при оплате",
+    "replanishmentSuccess":"пополнение прошло успешно",
+    "Replenishment":"пополнить"
 }
 }
