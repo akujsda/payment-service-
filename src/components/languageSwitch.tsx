@@ -7,8 +7,8 @@ export const LanguageSwitch=({
   switchLanguage,
 }:MyProps):React.ReactElement=>{
   return (
-    <select name="language" onChange={switchLanguage} id="languageSwitcher" >
-      <option value="english" selected>English</option>
+    <select name="language" defaultValue="english" onChange={switchLanguage} id="languageSwitcher" >
+      <option value="english" >English</option>
       <option value="russian" >Russian</option>
     </select>
   );

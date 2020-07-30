@@ -19,7 +19,7 @@ export const Operators:React.FC<Props>=({
   const imageId=Object.keys(image);
   let currentOperator:number=imageId.indexOf(stateOperator)
   const operator=Object.entries(image).map(([key, value])=>
-    <img className="allOperators operatorImage" id={key} src={value} alt={key} ></img>
+    <img className="allOperators operatorImage" id={key} src={value} alt={key} key={key} ></img>
   )
 
   if (stateOperator === 'All') {

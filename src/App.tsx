@@ -22,7 +22,8 @@ const App: React.FC=()=> {
     <I18nProvider locale={locale} >
       <div>
         <Header />
-        <LanguageSwitch switchLanguage={switchLanguage} />      
+        <LanguageSwitch switchLanguage={switchLanguage} /> 
+             
         <AppRouter /> 
       </div>
     </I18nProvider>

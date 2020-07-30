@@ -32,8 +32,8 @@ const FormField:React.FC<MyForm>=({
   const intl=useIntl();
   const validationSchema=Yup.object({
     phoneNumber:Yup.string()
-      .required(`${intl.messages.required}`)
-      .test('numberCheck', `${intl.messages.incorrectNumber}`, function():any{
+      .required('required')
+      .test('numberCheck', 'incorrectNumber', function():any{
         if (formik.values.phoneNumber.includes('_', 0)===true || formik.values.phoneNumber[3] !=='9'){      
         return false
         }else {
@@ -41,8 +41,8 @@ const FormField:React.FC<MyForm>=({
         }
       }),
     sum:Yup.string()
-      .required(`${intl.messages.required}`)
-      .test('sumCheck', `${intl.messages.allowableAmount}`, function(){
+      .required('required')
+      .test('sumCheck', 'allowableAmount', function(){
         const correctAmount:boolean =+formik.values.sum>1000;
         if (correctAmount===true){       
           return false

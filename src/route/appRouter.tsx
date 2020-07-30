@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Operators} from '../components/operators';
 import FormField from '../components/formField';
 import {BrowserRouter as Router, Route, useHistory} from 'react-router-dom';
+import {routes} from './route'
 
 
 const AppRouter: React.FC=():React.ReactElement=> {
@@ -15,8 +16,7 @@ const AppRouter: React.FC=():React.ReactElement=> {
     history.push('/');
   };
   const [operator, changeOperator]=useState<string>('All');
-  const [isReplenishmentSuccessful, changeSuccessfulReplenishment]=
-  useState<boolean | undefined>(false);
+  const [isReplenishmentSuccessful, changeSuccessfulReplenishment]=useState<boolean | undefined>(false);
   const [isLoadiengActive, changeLoading]=useState<boolean>(false);
   const history=useHistory();
  
@@ -31,7 +31,7 @@ const AppRouter: React.FC=():React.ReactElement=> {
     changeSuccessfulReplenishment(undefined);
   };
 
-  const startLoading=(): void =>{
+ const startLoading=(): void =>{
     changeLoading(true);
     setTimeout(()=>{
       randomBoolean();
@@ -59,17 +59,17 @@ const AppRouter: React.FC=():React.ReactElement=> {
       returnToMainDisplay();
     }
   };
-
  
   return (
     <Router >
-      <Route path="/" component={Operators} >
+      
+      <Route path={routes.main.path}>
         <div onClick={optionOperator} className="flexWrapper">
           <Operators stateOperator={operator} />
         </div>
       </Route>
 
-      <Route path="/numberinput" component={FormField}>
+      <Route path={routes.numberinput.path}>
         <FormField
           startLoading={startLoading}
           stateOperator={operator}
